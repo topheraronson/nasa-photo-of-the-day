@@ -1,4 +1,5 @@
 import React, {useState, useEffect } from 'react'
+import { Container, Row, Col } from 'reactstrap';
 import axios from 'axios'
 
 import Photo from './Photo'
@@ -25,11 +26,20 @@ const PhotoContainer = (props) => {
     useEffect(effectsCallback, [])
 
     return (
-        <div>
-            <h2>{title}</h2>
-            <Photo url={imageURL} />
-            <Description description={description} />
-        </div>
+        <Container>
+            <Row>
+                <h2>{title}</h2>
+            </Row>
+            
+            <Row>
+                <Col md={6}>
+                    <Description description={description} />
+                </Col>
+                <Col md={6}>
+                    <Photo url={imageURL} />
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
