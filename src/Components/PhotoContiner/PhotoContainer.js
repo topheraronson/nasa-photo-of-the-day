@@ -1,11 +1,9 @@
 import React, {useState, useEffect } from 'react'
-import { Container, Row, Col } from 'reactstrap';
 import axios from 'axios'
 
 import Photo from './Photo'
 import Description from './Description'
-
-//import data from '../../MockData'
+import styled from 'styled-components'
 
 const PhotoContainer = (props) => {
 
@@ -25,21 +23,22 @@ const PhotoContainer = (props) => {
     }
     useEffect(effectsCallback, [])
 
+    const Container = styled.div`
+        display: flex;
+        width: 80%;
+        justify-content: center;
+        margin: 0 auto;
+    `
+
     return (
-        <Container>
-            <Row>
-                <h2>{title}</h2>
-            </Row>
+        <div>
+            <h2>{title}</h2>
+            <Container>
+                <Description description={description} />
+                <Photo url={imageURL} />
+            </Container>
             
-            <Row>
-                <Col md={6}>
-                    <Description description={description} />
-                </Col>
-                <Col md={6}>
-                    <Photo url={imageURL} />
-                </Col>
-            </Row>
-        </Container>
+        </div> 
     )
 }
 

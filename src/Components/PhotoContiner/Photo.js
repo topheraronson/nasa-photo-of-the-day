@@ -1,10 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 
 const Photo = (props) => {
+
+    const Photo = styled.div`
+        width: 50%;
+        height: auto;
+        background-image: url(${props => props.url});
+        background-size: cover;
+        background-color: white;
+    `
+
     return (
-        <div>
-            <img src={props.url} alt='Nasa APOD' />
-        </div>
+        <Photo url={props.url}>
+        </Photo>
     )
 }
 
